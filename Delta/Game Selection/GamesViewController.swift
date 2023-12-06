@@ -75,7 +75,8 @@ class GamesViewController: UIViewController
         super.init(coder: aDecoder)
         
         self.fetchedResultsController.delegate = self
-        
+        self.navigationItem.rightBarButtonItem = nil
+
         NotificationCenter.default.addObserver(self, selector: #selector(GamesViewController.syncingDidStart(_:)), name: SyncCoordinator.didStartSyncingNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(GamesViewController.syncingDidFinish(_:)), name: SyncCoordinator.didFinishSyncingNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(GamesViewController.settingsDidChange(_:)), name: Settings.didChangeNotification, object: nil)
