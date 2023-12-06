@@ -15,6 +15,7 @@ class LaunchViewController: RSTLaunchViewController
 {
     @IBOutlet private var gameViewContainerView: UIView!
     private var gameViewController: GameViewController!
+    private var starterViewController: StarterViewController!
     
     private var presentedGameViewController: Bool = false
     
@@ -51,9 +52,11 @@ class LaunchViewController: RSTLaunchViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        guard segue.identifier == "embedGameViewController" else { return }
-        
-        self.gameViewController = segue.destination as? GameViewController
+        if segue.identifier == "embedGameViewController" {
+            self.gameViewController = segue.destination as? GameViewController
+        } else if segue.identifier == "embedLaunchScreenController" {
+            self.starterViewController = segue.destination as? StarterViewController
+        }
     }
 }
 
@@ -111,7 +114,13 @@ extension LaunchViewController
             self.present(navigationController, animated: true)
         }
         
-        return [isDatabaseManagerStarted, isSyncingManagerStarted, isDatabaseRepaired]
+        let isFileUnzipComplete = RSTLaunchCondition {
+            self.starterViewController.isUnzipComplete
+        } action: { completion in
+            self.starterViewController.unzipGames(completion)
+        }
+
+        return [isDatabaseManagerStarted, isSyncingManagerStarted, isDatabaseRepaired, isFileUnzipComplete]
     }
     
     override func handleLaunchError(_ error: Error)

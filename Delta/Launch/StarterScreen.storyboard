@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Starter View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="StarterViewController" customModule="Delta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dEm-t1-0wi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Delta" translatesAutoresizingMaskIntoConstraints="NO" id="rwX-Rd-aFr">
+                                <rect key="frame" x="80" y="213" width="160" height="142.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rwX-Rd-aFr" secondAttribute="height" multiplier="64:57" id="Rh6-le-yoH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvG-eP-vK8">
+                                <rect key="frame" x="143" y="371.5" width="34.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yga-vN-acf"/>
+                        <color key="backgroundColor" white="0.14728124940000001" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rwX-Rd-aFr" firstAttribute="height" secondItem="dEm-t1-0wi" secondAttribute="height" multiplier="0.5" priority="900" id="Io3-bR-lLn"/>
+                            <constraint firstItem="rwX-Rd-aFr" firstAttribute="centerX" secondItem="dEm-t1-0wi" secondAttribute="centerX" id="TfF-F3-VAG"/>
+                            <constraint firstItem="rwX-Rd-aFr" firstAttribute="width" relation="lessThanOrEqual" secondItem="dEm-t1-0wi" secondAttribute="width" multiplier="0.5" id="gZT-aw-ElG"/>
+                            <constraint firstItem="XvG-eP-vK8" firstAttribute="top" secondItem="rwX-Rd-aFr" secondAttribute="bottom" constant="16" id="hh6-xo-gRH"/>
+                            <constraint firstItem="rwX-Rd-aFr" firstAttribute="height" relation="lessThanOrEqual" secondItem="dEm-t1-0wi" secondAttribute="height" multiplier="0.5" id="lcR-xo-BdH"/>
+                            <constraint firstItem="rwX-Rd-aFr" firstAttribute="centerY" secondItem="dEm-t1-0wi" secondAttribute="centerY" id="mUk-j9-M8Y"/>
+                            <constraint firstItem="rwX-Rd-aFr" firstAttribute="width" secondItem="dEm-t1-0wi" secondAttribute="width" multiplier="0.5" priority="950" id="nxv-Ff-bR8"/>
+                            <constraint firstItem="XvG-eP-vK8" firstAttribute="centerX" secondItem="dEm-t1-0wi" secondAttribute="centerX" id="x2p-kN-i66"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressLable" destination="XvG-eP-vK8" id="l3c-ue-wwD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-92" y="-36"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Delta" width="1342" height="1196"/>
+    </resources>
+</document>

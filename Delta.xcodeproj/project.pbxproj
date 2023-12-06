@@ -32,6 +32,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		040432622B1F7B3700AD1955 /* StarterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040432612B1F7B3700AD1955 /* StarterViewController.swift */; };
+		0404326D2B20BB3400AD1955 /* StarterScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0404326C2B20BB3400AD1955 /* StarterScreen.storyboard */; };
 		1FA4ABA79AB72914FE414A61 /* libPods-Delta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC866E433B3BA9AE18ABA1EC /* libPods-Delta.a */; };
 		87343D7B985519A5890A61C6 /* libPods-DeltaPreviews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3E5A45AB20C8A87754453B /* libPods-DeltaPreviews.a */; };
 		AC1AE30A2A69BD3A00956EB9 /* AlternateAppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AE3092A69BD3A00956EB9 /* AlternateAppIcons.swift */; };
@@ -269,6 +271,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		040432612B1F7B3700AD1955 /* StarterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarterViewController.swift; sourceTree = "<group>"; };
+		0404326C2B20BB3400AD1955 /* StarterScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StarterScreen.storyboard; sourceTree = "<group>"; };
 		22506DA00971C4300AF90A35 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E3E5A45AB20C8A87754453B /* libPods-DeltaPreviews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeltaPreviews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECE6641DE30D01EA30FE7F6 /* Pods-DeltaPreviews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeltaPreviews.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeltaPreviews/Pods-DeltaPreviews.release.xcconfig"; sourceTree = "<group>"; };
@@ -538,6 +542,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0404326E2B20BCC300AD1955 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
 		BF090CEE1B490C1A00DCAB45 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -998,6 +1009,7 @@
 				D502F82129EF05F800ACCDA1 /* Scenes */,
 				BFFC46211D59848000AF2CC6 /* Launch */,
 				BF46894D1AAC469800A2586D /* Game Selection */,
+				0404326E2B20BCC300AD1955 /* Games */,
 				BFFB709D1AF99ACA00DE56FE /* Emulation */,
 				BF7AE7FA1C2E851F00B1B5BC /* Pause Menu */,
 				BFAA1FEB1B8AA4E800495943 /* Settings */,
@@ -1051,7 +1063,9 @@
 			isa = PBXGroup;
 			children = (
 				BFFC46441D59861000AF2CC6 /* LaunchScreen.storyboard */,
+				0404326C2B20BB3400AD1955 /* StarterScreen.storyboard */,
 				BFFC46221D5984A000AF2CC6 /* LaunchViewController.swift */,
+				040432612B1F7B3700AD1955 /* StarterViewController.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -1378,6 +1392,7 @@
 				D53415A7298C78BC00FD67B1 /* Contributors.plist in Resources */,
 				BF71CF8A1FE904B1001F1613 /* GameTableViewCell.xib in Resources */,
 				BFFC46461D59861000AF2CC6 /* LaunchScreen.storyboard in Resources */,
+				0404326D2B20BB3400AD1955 /* StarterScreen.storyboard in Resources */,
 				BF1F45AB21AF4B5800EF9895 /* SyncResultsViewController.storyboard in Resources */,
 				BF353FF61C5D837600C1184C /* PauseMenu.storyboard in Resources */,
 				BF27CC8E1BC9FEA200A20D89 /* Assets.xcassets in Resources */,
@@ -1640,6 +1655,7 @@
 				BF6EE5E91F7C5F860051AD6C /* _GameControllerInputMapping.swift in Sources */,
 				BF5942871E09BC8B0051894B /* _ControllerSkin.swift in Sources */,
 				BF95E2791E4982A10030E7AD /* GamesDatabaseBrowserViewController.swift in Sources */,
+				040432622B1F7B3700AD1955 /* StarterViewController.swift in Sources */,
 				D524F4A3273DE9C000D500B2 /* ProcessInfo+JIT.swift in Sources */,
 				BFDCA1E9244F7E1000B8FBDB /* Delta5ToDelta6.xcmappingmodel in Sources */,
 				AC1AE30A2A69BD3A00956EB9 /* AlternateAppIcons.swift in Sources */,
