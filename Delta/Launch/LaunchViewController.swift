@@ -114,12 +114,13 @@ extension LaunchViewController
             self.present(navigationController, animated: true)
         }
         
+        let isImportComplete = self.starterViewController.isImportComplete
         let isFileUnzipComplete = RSTLaunchCondition {
-            self.starterViewController.isUnzipComplete
+            isImportComplete
         } action: { completion in
             self.starterViewController.unzipGames(completion)
         }
-
+        
         return [isDatabaseManagerStarted, isSyncingManagerStarted, isDatabaseRepaired, isFileUnzipComplete]
     }
     

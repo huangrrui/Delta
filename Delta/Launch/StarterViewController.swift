@@ -11,9 +11,8 @@ import UIKit
 class StarterViewController: UIViewController {
     @IBOutlet private var progressLable: UILabel!
     private var unzipProgress = Progress()
-    let isUnzipCompleteKey = "isUnzipCompleteKey"
-    var isUnzipComplete: Bool {
-        UserDefaults.standard.bool(forKey: isUnzipCompleteKey)
+    var isImportComplete: Bool {
+        UserDefaults.standard.bool(forKey: Constant.isImportCompleteKey)
     }
         
     override func viewDidLoad() {
@@ -29,15 +28,16 @@ class StarterViewController: UIViewController {
             let total = self.unzipProgress.totalUnitCount
             DispatchQueue.main.async {
                 let progressText = "\(complete * 100 / total)"
+                self.progressLable.isHidden = false
                 self.progressLable.text = "\(progressText) %"
             }
         }
     }
     
     /// 解压游戏到 Document 目录中
-    func unzipGames(_ completion: ((Error?) -> Void)? = nil) {
+    func unzipGames(_ completion: @escaping ((Error?) -> Void)) {
         DispatchQueue.global().async {
-            guard let sourcePath = Bundle.main.path(forResource: "Test-50", ofType: "zip") else {
+            guard let sourcePath = Bundle.main.path(forResource: "NES", ofType: "zip") else {
                 return
             }
             guard let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
@@ -46,11 +46,41 @@ class StarterViewController: UIViewController {
             let sourceURL = URL(fileURLWithPath: sourcePath)
             do {
                 try FileManager.default.unzipItem(at: sourceURL, to: documentURL, progress: self.unzipProgress)
-                UserDefaults.standard.setValue(true, forKey: self.isUnzipCompleteKey)
-                completion?(nil)
+                ImportController.iTunesAutoImport { error in
+                    UserDefaults.standard.setValue(true, forKey: Constant.isImportCompleteKey)
+                    completion(error)
+                }
             } catch {
-                completion?(error)
+                if let contents = try? FileManager.default.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil) {
+                    for url in contents {
+                        guard url.lastPathComponent.contains(".nes")
+                                || url.lastPathComponent == "__MACOSX" else {
+                            continue
+                        }
+                        try? FileManager.default.removeItem(at: url)
+                    }
+                } else {
+                }
+                completion(UnzipError.error)
             }
+        }
+    }
+}
+
+extension StarterViewController {
+    enum Constant {
+        static let isImportCompleteKey = "isUnzipCompleteKey"
+    }
+}
+enum UnzipError: Error {
+    case error
+}
+
+extension UnzipError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .error:
+            "Initial Failed, please click retry"
         }
     }
 }
